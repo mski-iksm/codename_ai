@@ -20,23 +20,29 @@ class ScoringWithRedAndBlue:
         cls,
         my_target_words: List[str],
         opponent_target_words: List[str],
-        distance_data_dict: Dict[str, np.ndarray],
-        candidate_words: List[str],
+        distance_data_dict: Dict[str, Dict[str, float]],
         my_target_score_offset: float = 0.02,
     ) -> 'ScoringWithRedAndBlue':
         print('calculating')
+        available_candidates = list(list(distance_data_dict.values())[0].keys())
         valid_candidate_words = [
-            candidate_word for candidate_word in candidate_words
+            candidate_word for candidate_word in available_candidates
             if cls._is_word_valid(candidate_word=candidate_word, ng_words=my_target_words + opponent_target_words)
         ]
 
         opponent_target_single_word_scores = -pd.DataFrame(
-            [distance_data_dict[word] for word in opponent_target_words], index=opponent_target_words, columns=candidate_words)
+            [[distance_data_dict[word][candidate_word] for candidate_word in valid_candidate_words] for word in opponent_target_words],
+            index=opponent_target_words,
+            columns=valid_candidate_words,
+        )
         opponent_scores = opponent_target_single_word_scores.max(axis=0)
         opponent_scores_dict_by_candidate_score = opponent_scores.loc[valid_candidate_words].to_dict()
 
-        my_target_single_word_scores = -pd.DataFrame([distance_data_dict[word]
-                                                      for word in my_target_words], index=my_target_words, columns=candidate_words) - my_target_score_offset
+        my_target_single_word_scores = -pd.DataFrame(
+            [[distance_data_dict[word][candidate_word] for candidate_word in valid_candidate_words] for word in my_target_words],
+            index=my_target_words,
+            columns=valid_candidate_words,
+        ) - my_target_score_offset
         scores = []
         counts = []
         expecting_my_target_words = []

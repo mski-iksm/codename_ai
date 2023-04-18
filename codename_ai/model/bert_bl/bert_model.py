@@ -17,6 +17,8 @@ class CalculateWordDistanceWithBERT(gokart.TaskOnKart):
     target_word: str = luigi.Parameter()
     candidate_words: List[str] = luigi.ListParameter()
 
+    __dev = luigi.FloatParameter(default=0.01)
+
     def requires(self):
         return {
             'target_words': GetMultipleSentencesBertVector(input_sentences=[self.target_word]),
@@ -29,13 +31,13 @@ class CalculateWordDistanceWithBERT(gokart.TaskOnKart):
         self.dump(self._run(target_word_vector=target_word_vector, candidate_word_vectors=candidate_word_vectors))
 
     @classmethod
-    def _run(cls, target_word_vector: torch.Tensor, candidate_word_vectors: Dict[str, torch.Tensor]) -> np.ndarray:
+    def _run(cls, target_word_vector: torch.Tensor, candidate_word_vectors: Dict[str, torch.Tensor]) -> Dict[str, float]:
         candidate_word_vector_keys = list(candidate_word_vectors.keys())
         candidate_word_vectors_tensor = torch.stack([candidate_word_vectors[key] for key in candidate_word_vector_keys])
         distance = -torch.nn.functional.cosine_similarity(target_word_vector.to(torch.float32), candidate_word_vectors_tensor.to(torch.float32),
                                                           dim=1).detach().numpy().copy()
         assert distance.shape[0] == len(candidate_word_vector_keys)
-        return distance
+        return {word: float(dist) for dist, word in zip(distance, candidate_word_vector_keys)}
 
 
 class GetMultipleSentencesBertVector(gokart.TaskOnKart):

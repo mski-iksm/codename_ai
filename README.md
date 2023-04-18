@@ -27,3 +27,6 @@ docker run
 
 # wordpackソース
 https://w.atwiki.jp/codenameol/pages/10.html
+
+# gensimソース
+http://www.cl.ecei.tohoku.ac.jp/~m-suzuki/jawiki_vector/
