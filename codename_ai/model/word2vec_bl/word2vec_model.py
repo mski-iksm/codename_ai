@@ -1,3 +1,4 @@
+from email.policy import default
 from typing import Dict, List, Tuple
 
 import gokart
@@ -20,7 +21,7 @@ class CalculateWordDistanceWithWord2Vec(gokart.TaskOnKart):
 
     def requires(self):
         return {
-            'target_words': GetMultipleSentencesWord2VecVector(input_words=[self.target_word]),
+            'target_words': GetMultipleSentencesWord2VecVector(input_words=[self.target_word], allow_unknown=True),
             'candidate_words': GetMultipleSentencesWord2VecVector(input_words=self.candidate_words),
         }
 
@@ -42,6 +43,9 @@ class GetMultipleSentencesWord2VecVector(gokart.TaskOnKart):
     model_name: str = luigi.Parameter(default=MODEL_NAME)
     input_words: Tuple[str, ...] = luigi.ListParameter()
 
+    allow_el: bool = gokart.ExplicitBoolParameter(default=True)
+    allow_unknown: bool = gokart.ExplicitBoolParameter(default=False)
+
     def run(self):
         self.dump(self._words_to_vectors(input_words=list(self.input_words)))
 
@@ -49,16 +53,15 @@ class GetMultipleSentencesWord2VecVector(gokart.TaskOnKart):
         all_vectors_dict = {}
         for word in tqdm(input_words):
             vector, err = self._get_single_vector(word=word)
-            if not err:
+            if not err or self.allow_unknown:
                 all_vectors_dict[word] = vector
         return all_vectors_dict
 
-    @classmethod
-    def _get_single_vector(cls, word: str) -> Tuple[np.ndarray, bool]:
+    def _get_single_vector(self, word: str) -> Tuple[np.ndarray, bool]:
         err = False
         if model.has_index_for(word):
             return model.get_vector(word), err
         el_word = f'[{word}]'
-        if model.has_index_for(el_word):
+        if self.allow_el and model.has_index_for(el_word):
             return model.get_vector(el_word), err
         return np.zeros_like(model.get_vector('イヌ')), True

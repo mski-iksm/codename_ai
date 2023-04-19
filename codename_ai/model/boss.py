@@ -37,7 +37,6 @@ class Word2VecBossModel(BossModelBase):
 
     def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
         words_by_color = game.get_unopened_words_by_color()
-        print(words_by_color)
 
         # 距離計算までをwordごとにやって、gokart化
         target_words = words_by_color['blue_words'] + words_by_color['red_words'] + words_by_color['black_words'] + words_by_color['white_words']
@@ -60,7 +59,8 @@ class Word2VecBossModel(BossModelBase):
         opponent_target_words = words_by_color['red_words'] if self._my_color == 'blue' else words_by_color['blue_words']
         scoring_model = ScoringWithRedAndBlue.calculate_scores(my_target_words=my_target_words,
                                                                opponent_target_words=opponent_target_words,
-                                                               distance_data_dict=distance_data_dict)
+                                                               distance_data_dict=distance_data_dict,
+                                                               my_target_score_offset=0.15)
 
         # ソート
         best_candidate_word, expect_count, expect_words = scoring_model.get_best_word_and_count()
@@ -77,7 +77,6 @@ class BaseLineBERTBossModel(BossModelBase):
 
     def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
         words_by_color = game.get_unopened_words_by_color()
-        print(words_by_color)
 
         # 距離計算までをwordごとにやって、gokart化
         target_words = words_by_color['blue_words'] + words_by_color['red_words'] + words_by_color['black_words'] + words_by_color['white_words']
@@ -105,3 +104,14 @@ class BaseLineBERTBossModel(BossModelBase):
         # ソート
         best_candidate_word, expect_count, expect_words = scoring_model.get_best_word_and_count()
         return (best_candidate_word, expect_count, expect_words)
+
+
+class ChatGPTBossModel(BossModelBase):
+
+    @classmethod
+    def setup_model(cls, my_color: str) -> 'ChatGPTBossModel':
+        assert my_color in ['red', 'blue']
+        return cls(my_color=my_color)
+
+    def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
+        pass

@@ -66,6 +66,4 @@ class ScoringWithRedAndBlue:
         expect_count = scores.iloc[0]['count']
         expect_words = scores.iloc[0]['expecting_my_target_word']
 
-        print(scores.head(10))
-
         return (best_candidate_word, expect_count, expect_words)

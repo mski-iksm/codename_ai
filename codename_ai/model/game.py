@@ -1,3 +1,4 @@
+import itertools
 import random
 from typing import List, Set
 
@@ -34,3 +35,6 @@ class Game:
             black_words=list(self._black_words),
             white_words=list(self._white_words - self._opened_white_words),
         )
+
+    def get_all_unopened_words_for_player(self):
+        return sorted(list(itertools.chain.from_iterable(self.get_unopened_words_by_color().values())))
