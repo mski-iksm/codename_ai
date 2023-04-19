@@ -25,10 +25,6 @@ class BossModelBase:
 
 class Word2VecBossModel(BossModelBase):
 
-    # @classmethod
-    # def _get_model_path_name(cls) -> str:
-    #     return os.path.abspath(os.path.join(os.path.dirname(__file__), 'additional_data', 'cc.ja.300.bin'))
-
     @classmethod
     def setup_model(cls, my_color: str) -> 'Word2VecBossModel':
         assert my_color in ['red', 'blue']
