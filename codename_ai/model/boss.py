@@ -9,7 +9,10 @@ from codename_ai.model.candidate_words import (base_small_candidate_words, large
 from codename_ai.model.chatgpt_model.chatgpt_model import query_chatgpt
 from codename_ai.model.game import Game
 from codename_ai.model.scoring import ScoringWithRedAndBlue
-from codename_ai.model.word2vec_bl.word2vec_model import CalculateWordDistanceWithWord2Vec
+from codename_ai.model.word2vec_bl.word2vec_model import \
+    CalculateWordDistanceWithWord2Vec
+from codename_ai.model.wordnet_model.wordnet_model import \
+    CalculateWordDistanceWithWordNet
 
 logging.config.fileConfig('./conf/logging.ini')
 
@@ -121,3 +124,41 @@ class ChatGPTBossModel(BossModelBase):
         best_candidate_word, expect_count = query_chatgpt(my_target_words=my_target_words, opponent_target_words=opponent_target_words)
         expect_words: Tuple[str, ...] = tuple()
         return best_candidate_word, expect_count, expect_words
+
+
+class WordNetBossModel(BossModelBase):
+
+    @classmethod
+    def setup_model(cls, my_color: str) -> 'WordNetBossModel':
+        assert my_color in ['red', 'blue']
+        return cls(my_color=my_color)
+
+    def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
+        words_by_color = game.get_unopened_words_by_color()
+
+        max_traverse_depth = 3
+
+        my_target_words = words_by_color[f'{self._my_color}_words']
+        other_target_words = words_by_color['red_words'] if self._my_color == 'blue' else words_by_color['blue_words']
+        opponent_target_words = other_target_words + words_by_color['black_words'] + words_by_color['white_words']
+
+        target_words = my_target_words + opponent_target_words
+        distance_data_dict: Dict[str, Dict[str, float]] = {
+            target_word: gokart.build(CalculateWordDistanceWithWordNet(target_word=target_word, traverse_depth=max_traverse_depth), log_level=logging.ERROR)
+            for target_word in tqdm(target_words)
+        }
+        print(distance_data_dict['キウイ'])
+
+        # スコアリング
+        scoring_model = ScoringWithRedAndBlue.calculate_scores(
+            my_target_words=my_target_words,
+            opponent_target_words=opponent_target_words,
+            distance_data_dict=distance_data_dict,
+            my_target_score_offset=0,
+            fillna_distance_for_me=999,
+            fillna_distance_for_opponent=5,
+        )
+
+        # ソート
+        best_candidate_word, expect_count, expect_words = scoring_model.get_best_word_and_count()
+        return (best_candidate_word, expect_count, expect_words)

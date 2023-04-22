@@ -4,9 +4,9 @@ from typing import Dict, List, Tuple
 import gokart
 import luigi
 import numpy as np
-from tqdm import tqdm
 from gensim.models import KeyedVectors
 from sklearn.metrics.pairwise import cosine_similarity
+from tqdm import tqdm
 
 MODEL_NAME = 'jawiki_vector'
 model_path = {'jawiki_vector': './data/entity_vector.model.bin'}
