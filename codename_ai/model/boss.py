@@ -22,6 +22,11 @@ class BossModelBase:
     def __init__(self, my_color: str) -> None:
         self._my_color = my_color
 
+    @classmethod
+    def setup_model(cls, my_color: str) -> 'BossModelBase':
+        assert my_color in ['red', 'blue']
+        return cls(my_color=my_color)
+
     def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
         raise NotImplementedError()
 
@@ -142,23 +147,37 @@ class WordNetBossModel(BossModelBase):
         other_target_words = words_by_color['red_words'] if self._my_color == 'blue' else words_by_color['blue_words']
         opponent_target_words = other_target_words + words_by_color['black_words'] + words_by_color['white_words']
 
+        # wordnet で候補ワードを作る ========
         target_words = my_target_words + opponent_target_words
         distance_data_dict: Dict[str, Dict[str, float]] = {
             target_word: gokart.build(CalculateWordDistanceWithWordNet(target_word=target_word, traverse_depth=max_traverse_depth), log_level=logging.ERROR)
             for target_word in tqdm(target_words)
         }
-        print(distance_data_dict['キウイ'])
-
-        # スコアリング
         scoring_model = ScoringWithRedAndBlue.calculate_scores(
             my_target_words=my_target_words,
             opponent_target_words=opponent_target_words,
             distance_data_dict=distance_data_dict,
             my_target_score_offset=0,
             fillna_distance_for_me=999,
-            fillna_distance_for_opponent=5,
+            fillna_distance_for_opponent=max_traverse_depth + 2,
         )
+        word_candidate = scoring_model.get_candidate_words()
 
-        # ソート
-        best_candidate_word, expect_count, expect_words = scoring_model.get_best_word_and_count()
+        # word2vecで順位づけ
+        embedding_distance_data_dict = {
+            target_word: gokart.build(CalculateWordDistanceWithWord2Vec(
+                target_word=target_word,
+                candidate_words=word_candidate,
+            ), log_level=logging.ERROR)
+            for target_word in tqdm(target_words)
+        }
+        embedding_scoring_model = ScoringWithRedAndBlue.calculate_scores(my_target_words=my_target_words,
+                                                                         opponent_target_words=opponent_target_words,
+                                                                         distance_data_dict=embedding_distance_data_dict,
+                                                                         my_target_score_offset=0.1)
+        # print(embedding_scoring_model._candidates_table)
+
+        # embedding scoreで再ソート
+        best_candidate_word, expect_count, expect_words = scoring_model.get_best_word_and_count(
+            second_table=embedding_scoring_model._candidates_table[['total_score']])
         return (best_candidate_word, expect_count, expect_words)

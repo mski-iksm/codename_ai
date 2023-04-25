@@ -1,5 +1,5 @@
 import itertools
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 
 import pandas as pd
 from tqdm import tqdm
@@ -12,7 +12,7 @@ class ScoringWithRedAndBlue:
 
     @classmethod
     def _is_word_valid(cls, candidate_word: str, ng_words: List[str]) -> bool:
-        return all([ng_word not in candidate_word for ng_word in ng_words])
+        return all([ng_word not in candidate_word for ng_word in ng_words]) and all([candidate_word not in ng_word for ng_word in ng_words])
 
     @classmethod
     def calculate_scores(
@@ -62,14 +62,26 @@ class ScoringWithRedAndBlue:
 
         return cls(candidates_table=candidates_table)
 
-    def get_best_word_and_count(self) -> Tuple[str, int, Tuple[str, ...]]:
-        scores = self._candidates_table.sort_values('total_score', ascending=False)
+    def get_best_word_and_count(self, second_table: Optional[pd.DataFrame] = None, count_cap: int = 3) -> Tuple[str, int, Tuple[str, ...]]:
+        scores = self._candidates_table
+        scores['capped_count'] = scores['count'].clip(0, count_cap)
+        sort_columns = ['capped_count', 'total_score']
+
+        if second_table is not None:
+            scores = self._candidates_table.join(second_table.rename(columns={'total_score': 'second_score'}))
+            scores = scores.dropna()
+            sort_columns = ['capped_count', 'total_score', 'second_score']
+
+        sorted_scores = scores.sort_values(sort_columns, ascending=False)
         # デバッグ
         # pd.options.display.max_rows = 1000
-        # print(scores.head(100))
+        # print(sorted_scores.head(100))
 
-        best_candidate_word = scores.iloc[0].name
-        expect_count = scores.iloc[0]['count']
-        expect_words = scores.iloc[0]['expecting_my_target_word']
+        best_candidate_word = sorted_scores.iloc[0].name
+        expect_count = sorted_scores.iloc[0]['count']
+        expect_words = sorted_scores.iloc[0]['expecting_my_target_word']
 
         return (best_candidate_word, expect_count, expect_words)
+
+    def get_candidate_words(self) -> List[str]:
+        return self._candidates_table.index.to_list()
