@@ -4,6 +4,8 @@ from typing import Dict, List, Optional, Tuple
 import pandas as pd
 from tqdm import tqdm
 
+from codename_ai.model.filtering import is_a_not_part_of_bs, is_bs_not_part_of_a
+
 
 class ScoringWithRedAndBlue:
 
@@ -35,7 +37,8 @@ class ScoringWithRedAndBlue:
         available_candidates = sorted(list(set(itertools.chain.from_iterable([distance_dict.keys() for distance_dict in distance_data_dict.values()]))))
         valid_candidate_words = [
             candidate_word for candidate_word in available_candidates
-            if cls._is_word_valid(candidate_word=candidate_word, ng_words=my_target_words + opponent_target_words)
+            if is_a_not_part_of_bs(a_word=candidate_word, b_words=my_target_words +
+                                   opponent_target_words) and is_bs_not_part_of_a(a_word=candidate_word, b_words=my_target_words + opponent_target_words)
         ]
 
         opponent_target_single_word_scores = -pd.DataFrame(

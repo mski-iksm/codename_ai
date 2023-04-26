@@ -144,7 +144,7 @@ def filter_chatgpt_with_word2vec(my_target_words: List[str], opponent_target_wor
     )
     hint_candidate_words = answer_df['ヒント単語'].tolist()
 
-    # word2vecで順位づけ
+    # TODO: word2vecとwordnetで許容できるやつの数を直してrerank
     embedding_distance_data_dict = {
         target_word: gokart.build(CalculateWordDistanceWithWord2Vec(
             target_word=target_word,
