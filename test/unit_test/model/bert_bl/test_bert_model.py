@@ -3,7 +3,8 @@ import unittest
 import numpy as np
 import torch
 
-from codename_ai.model.bert_bl.bert_model import (CalculateWordDistanceWithBERT, GetMultipleSentencesBertVector)
+from codename_ai.model.bert_bl.bert_model import (
+    CalculateWordDistanceWithBERT, GetMultipleSentencesBertVector)
 
 # class TestCalculateWordDistanceWithBERT(unittest.TestCase):
 

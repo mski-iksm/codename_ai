@@ -15,6 +15,13 @@ class ScoringWithRedAndBlue:
         return all([ng_word not in candidate_word for ng_word in ng_words]) and all([candidate_word not in ng_word for ng_word in ng_words])
 
     @classmethod
+    def build_scoring_from_list_data(cls, candidate_words: List[str], counts: List[int]):
+        # スコアのないGPT用。スコアリングは別データで行う前提
+        candidates_table = pd.DataFrame(dict(count=counts, total_score=[1] * len(counts), expecting_my_target_word=[''] * len(counts)),
+                                        index=pd.Index(candidate_words))
+        return cls(candidates_table=candidates_table)
+
+    @classmethod
     def calculate_scores(
         cls,
         my_target_words: List[str],
@@ -58,13 +65,14 @@ class ScoringWithRedAndBlue:
             expecting_my_target_words.append(_greater_my_targets.index.tolist())
 
         candidates_table = pd.DataFrame(dict(score=scores, count=counts, expecting_my_target_word=expecting_my_target_words), index=valid_candidate_words)
-        candidates_table['total_score'] = candidates_table['score'] * candidates_table['count']
+        # candidates_table['total_score'] = candidates_table['score'] * candidates_table['count']
 
         return cls(candidates_table=candidates_table)
 
     def get_best_word_and_count(self, second_table: Optional[pd.DataFrame] = None, count_cap: int = 3) -> Tuple[str, int, Tuple[str, ...]]:
         scores = self._candidates_table
         scores['capped_count'] = scores['count'].clip(0, count_cap)
+        scores['total_score'] = scores['score'] * scores['count']
         sort_columns = ['capped_count', 'total_score']
 
         if second_table is not None:
@@ -74,8 +82,8 @@ class ScoringWithRedAndBlue:
 
         sorted_scores = scores.sort_values(sort_columns, ascending=False)
         # デバッグ
-        # pd.options.display.max_rows = 1000
-        # print(sorted_scores.head(100))
+        pd.options.display.max_rows = 1000
+        print(sorted_scores.head(100))
 
         best_candidate_word = sorted_scores.iloc[0].name
         expect_count = sorted_scores.iloc[0]['count']

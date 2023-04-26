@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 from codename_ai.model.bert_bl.bert_model import CalculateWordDistanceWithBERT
 from codename_ai.model.candidate_words import (base_small_candidate_words, large_ipa_noun_candidate_words, small_noun_candidate_words)
-from codename_ai.model.chatgpt_model.chatgpt_model import query_chatgpt
+from codename_ai.model.chatgpt_model.chatgpt_model import filter_chatgpt_with_word2vec, query_chatgpt
 from codename_ai.model.game import Game
 from codename_ai.model.scoring import ScoringWithRedAndBlue
 from codename_ai.model.word2vec_bl.word2vec_model import \
@@ -32,13 +32,6 @@ class BossModelBase:
 
 
 class Word2VecBossModel(BossModelBase):
-
-    @classmethod
-    def setup_model(cls, my_color: str) -> 'Word2VecBossModel':
-        assert my_color in ['red', 'blue']
-
-        # fasttext_vectors = gensim.models.fasttext.load_facebook_vectors(path=cls._get_model_path_name())
-        return cls(my_color=my_color)
 
     def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
         words_by_color = game.get_unopened_words_by_color()
@@ -75,12 +68,6 @@ class Word2VecBossModel(BossModelBase):
 
 class BaseLineBERTBossModel(BossModelBase):
 
-    @classmethod
-    def setup_model(cls, my_color: str) -> 'BaseLineBERTBossModel':
-        assert my_color in ['red', 'blue']
-
-        return cls(my_color=my_color)
-
     def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
         words_by_color = game.get_unopened_words_by_color()
 
@@ -115,11 +102,6 @@ class BaseLineBERTBossModel(BossModelBase):
 
 class ChatGPTBossModel(BossModelBase):
 
-    @classmethod
-    def setup_model(cls, my_color: str) -> 'ChatGPTBossModel':
-        assert my_color in ['red', 'blue']
-        return cls(my_color=my_color)
-
     def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
         words_by_color = game.get_unopened_words_by_color()
 
@@ -131,12 +113,20 @@ class ChatGPTBossModel(BossModelBase):
         return best_candidate_word, expect_count, expect_words
 
 
-class WordNetBossModel(BossModelBase):
+class ChatGPTWithWord2VecBossModel(BossModelBase):
 
-    @classmethod
-    def setup_model(cls, my_color: str) -> 'WordNetBossModel':
-        assert my_color in ['red', 'blue']
-        return cls(my_color=my_color)
+    def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
+        words_by_color = game.get_unopened_words_by_color()
+
+        my_target_words = words_by_color[f'{self._my_color}_words']
+        other_target_words = words_by_color['red_words'] if self._my_color == 'blue' else words_by_color['blue_words']
+        opponent_target_words = other_target_words + words_by_color['black_words'] + words_by_color['white_words']
+        best_candidate_word, expect_count, expect_words = filter_chatgpt_with_word2vec(my_target_words=my_target_words,
+                                                                                       opponent_target_words=opponent_target_words)
+        return best_candidate_word, expect_count, expect_words
+
+
+class WordNetBossModel(BossModelBase):
 
     def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
         words_by_color = game.get_unopened_words_by_color()

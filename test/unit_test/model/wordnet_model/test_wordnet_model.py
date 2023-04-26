@@ -1,6 +1,8 @@
 import unittest
 
-from codename_ai.model.wordnet_model.wordnet_model import CalculateSynsetDistanceWithWordNetBySynset, CalculateWordDistanceWithWordNet, _use_closest_distance
+from codename_ai.model.wordnet_model.wordnet_model import (
+    CalculateSynsetDistanceWithWordNetBySynset,
+    CalculateWordDistanceWithWordNet, _use_closest_distance)
 
 
 class TestCalculateWordDistanceWithWordNet(unittest.TestCase):

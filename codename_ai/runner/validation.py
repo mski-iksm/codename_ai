@@ -1,6 +1,9 @@
 import os
 from typing import Dict
-from codename_ai.model.boss import BaseLineBERTBossModel, BossModelBase, ChatGPTBossModel, Word2VecBossModel, WordNetBossModel
+
+from codename_ai.model.boss import (BaseLineBERTBossModel, BossModelBase,
+                                    ChatGPTBossModel, Word2VecBossModel,
+                                    WordNetBossModel)
 from codename_ai.model.game import Game
 
 model_name2class: Dict[str, BossModelBase] = {
