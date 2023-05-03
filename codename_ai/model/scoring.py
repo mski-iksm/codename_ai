@@ -4,7 +4,7 @@ from typing import Dict, List, Optional, Tuple
 import pandas as pd
 from tqdm import tqdm
 
-from codename_ai.model.filtering import is_a_not_part_of_bs, is_bs_not_part_of_a
+from codename_ai.model.filtering import (is_a_not_part_of_bs, is_bs_not_part_of_a)
 
 
 class ScoringWithRedAndBlue:
@@ -68,14 +68,14 @@ class ScoringWithRedAndBlue:
             expecting_my_target_words.append(_greater_my_targets.index.tolist())
 
         candidates_table = pd.DataFrame(dict(score=scores, count=counts, expecting_my_target_word=expecting_my_target_words), index=valid_candidate_words)
-        # candidates_table['total_score'] = candidates_table['score'] * candidates_table['count']
+        candidates_table['total_score'] = candidates_table['score'] * candidates_table['count']
 
         return cls(candidates_table=candidates_table)
 
     def get_best_word_and_count(self, second_table: Optional[pd.DataFrame] = None, count_cap: int = 3) -> Tuple[str, int, Tuple[str, ...]]:
         scores = self._candidates_table
         scores['capped_count'] = scores['count'].clip(0, count_cap)
-        scores['total_score'] = scores['score'] * scores['count']
+        # scores['total_score'] = scores['score'] * scores['count']
         sort_columns = ['capped_count', 'total_score']
 
         if second_table is not None:

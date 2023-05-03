@@ -1,9 +1,8 @@
 import os
+import time
 from typing import Dict
 
-from codename_ai.model.boss import (BaseLineBERTBossModel, BossModelBase,
-                                    ChatGPTBossModel, Word2VecBossModel,
-                                    WordNetBossModel)
+from codename_ai.model.boss import (BaseLineBERTBossModel, BossModelBase, ChatGPTBossModel, ChatGPTWithWord2VecBossModel, Word2VecBossModel, WordNetBossModel)
 from codename_ai.model.game import Game
 
 model_name2class: Dict[str, BossModelBase] = {
@@ -11,6 +10,7 @@ model_name2class: Dict[str, BossModelBase] = {
     'bert': BaseLineBERTBossModel,
     'chatgpt': ChatGPTBossModel,
     'wordnet': WordNetBossModel,
+    'enhanced_chatgpt': ChatGPTWithWord2VecBossModel,
 }
 
 
@@ -26,6 +26,8 @@ def validation(model_name: str, random_base: int = 10000, from_q_num: int = 0):
         print(q_num_print)
         game = Game.setup_game(random_seed=random_seed + random_base)
 
+        time_sta = time.time()
+
         boss_model = model_name2class[model_name].setup_model(my_color='blue')
         best_candidate_word, expect_count, expect_words = boss_model.next_hint(game=game)
         print('\t'.join(game.get_all_unopened_words_for_player()))
@@ -35,6 +37,10 @@ def validation(model_name: str, random_base: int = 10000, from_q_num: int = 0):
 
         corrects = []
         wrongs = []
+
+        time_end = time.time()
+        tim = time_end - time_sta
+        print(f'所要時間: {tim}')
 
         selections = input(f'選択肢から{expect_count}個選んでください:').split()
         for selection in selections:

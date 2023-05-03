@@ -30,3 +30,6 @@ https://w.atwiki.jp/codenameol/pages/10.html
 
 # gensimソース
 http://www.cl.ecei.tohoku.ac.jp/~m-suzuki/jawiki_vector/
+
+# 簡単辞書
+https://github.com/gunyarakun/kantan-ej-dictionary

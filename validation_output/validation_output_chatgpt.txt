@@ -1,0 +1,106 @@
+第1問##############################
+hint: 円形 count: 3
+正解数: 3 selected_correct: ['サークル', 'リング', 'キウイ'] <- NG
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問##############################
+hint: 円形 count: 2
+正解数: 1 selected_correct: ['サークル'] <- NG
+不正解数: 1 selected_correct: ['ルーレット']
+未評価数: 0 selected_correct: []
+第3問##############################
+hint: 森 count: 3
+正解数: 1 selected_correct: ['ジャングル']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第4問##############################
+hint: 電気 count: 3
+正解数: 3 selected_correct: ['レーザー', 'コード', 'バッテリー']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第5問##############################
+hint: 水中 count: 4
+正解数: 2 selected_correct: ['スキューバダイバー', '潜水艦']
+不正解数: 1 selected_correct: ['ホース']
+未評価数: 0 selected_correct: []
+第6問##############################
+hint: 建物 count: 2
+正解数: 1 selected_correct: ['ビル'] < -NG
+不正解数: 1 selected_correct: ['モール']
+未評価数: 0 selected_correct: []
+第7問##############################
+hint: 動物 count: 3
+正解数: 2 selected_correct: ['クジラ', 'サメ']
+不正解数: 1 selected_correct: ['ペンギン']
+未評価数: 0 selected_correct: []
+第8問##############################
+hint: 音楽 count: 3
+正解数: 1 selected_correct: ['サウンド']
+不正解数: 1 selected_correct: ['クイーン']
+未評価数: 1 selected_correct: ['ハウス']
+第9問##############################
+hint: 都市 count: 4
+正解数: 2 selected_correct: ['ニューヨーク', 'ベルリン']
+不正解数: 1 selected_correct: ['タワー']
+未評価数: 1 selected_correct: ['ヨーロッパ']
+第10問##############################
+hint: 電力 count: 3
+正解数: 2 selected_correct: ['バッテリー', 'ライト']
+不正解数: 1 selected_correct: ['サーバー']
+未評価数: 0 selected_correct: []
+第11問##############################
+hint: 動物 count: 4
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['クモ']
+未評価数: 3 selected_correct: ['サメ', 'ユニコーン', 'タコ']
+第12問##############################
+hint: 文化 count: 3
+正解数: 1 selected_correct: ['シェイクスピア']
+不正解数: 1 selected_correct: ['フード']
+未評価数: 0 selected_correct: []
+第13問##############################
+hint: 夏 count: 4
+正解数: 3 selected_correct: ['オリンピック', 'スイカ', '浜']
+不正解数: 1 selected_correct: ['火']
+未評価数: 0 selected_correct: []
+第14問##############################
+hint: 飲み物 count: 3
+正解数: 1 selected_correct: ['コップ']
+不正解数: 1 selected_correct: ['ラッパ']
+未評価数: 1 selected_correct: ['密売人']
+第15問##############################
+hint: 電気 count: 3
+正解数: 1 selected_correct: ['ランプ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第16問##############################
+hint: 飲み物 count: 3
+正解数: 1 selected_correct: ['クール']
+不正解数: 1 selected_correct: ['オレンジ']
+未評価数: 1 selected_correct: ['パーティー']
+第17問##############################
+hint: 風景 count: 3
+正解数: 1 selected_correct: ['教会']
+不正解数: 1 selected_correct: ['スポット']
+未評価数: 1 selected_correct: ['ハリウッド']
+第18問##############################
+hint: 寒い count: 5
+正解数: 1 selected_correct: ['アイスクリーム']
+不正解数: 1 selected_correct: ['コート']
+未評価数: 2 selected_correct: ['木星', 'クロス']
+第19問##############################
+hint: 動物 count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['イヌ']
+未評価数: 2 selected_correct: ['カモ', 'ネコ']
+第20問##############################
+hint: 飲み物 count: 2
+正解数: 2 selected_correct: ['ジョッキ', '水']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+result ###############################################
+平均正解数: 29/20 = 1.45
+平均誤答数: 15/20 = 0.75
+
+評価: 1.45-0.75=0.7
+NG: 3

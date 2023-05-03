@@ -1465,6 +1465,17 @@ plugins = ["setuptools"]
 requirements-deprecated-finder = ["pip-api", "pipreqs"]
 
 [[package]]
+name = "jaconv"
+version = "0.3.4"
+description = "Pure-Python Japanese character interconverter for Hiragana, Katakana, Hankaku, Zenkaku and more"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "jaconv-0.3.4.tar.gz", hash = "sha256:9e7c55f3f0b0e2dbad62f6c9fa0c30fc6fffdbb78297955509d90856b3a31d6d"},
+]
+
+[[package]]
 name = "jedi"
 version = "0.18.2"
 description = "An autocompletion tool for Python that can be used for text editors."
@@ -3565,6 +3576,17 @@ files = [
 ]
 
 [[package]]
+name = "romkan"
+version = "0.2.1"
+description = "A Romaji/Kana conversion library"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "romkan-0.2.1.tar.gz", hash = "sha256:a530245a38969704700e0ca8f9cb7158c4ede91c5fd1e24677dbe814cf91f33b"},
+]
+
+[[package]]
 name = "rsa"
 version = "4.9"
 description = "Pure-Python RSA implementation"
@@ -4559,4 +4581,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9.9"
-content-hash = "043d2f08cd0232cd0527077376b35a1f3299a4fd8ed999a6440671a6a2db9ea4"
+content-hash = "3f871e5822cab475b575fcb89bd882618167451f08f211e8cabfa2943412630e"

@@ -1,0 +1,106 @@
+第1問##############################
+hint: 円形 count: 3 <- NG
+正解数: 3 selected_correct: ['サークル', 'リング', 'キウイ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問##############################
+hint: 円 count: 2 <- NG
+正解数: 2 selected_correct: ['サークル', 'センター']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第3問##############################
+hint: 動く count: 2
+正解数: 1 selected_correct: ['ダンス']
+不正解数: 1 selected_correct: ['ヘリコプター']
+未評価数: 0 selected_correct: []
+第4問##############################
+hint: 戦闘 count: 3
+正解数: 3 selected_correct: ['ピストル', 'ボス', 'ラウンド']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第5問##############################
+hint: プロテクト count: 3
+正解数: 2 selected_correct: ['カバー', '潜水艦']
+不正解数: 1 selected_correct: ['ハード']
+未評価数: 0 selected_correct: []
+第6問##############################
+hint: 物 count: 4
+正解数: 1 selected_correct: ['カギ']
+不正解数: 1 selected_correct: ['カード']
+未評価数: 2 selected_correct: ['紙', 'チューブ']
+第7問##############################
+hint: 勝負 count: 3
+正解数: 3 selected_correct: ['ファイター', 'オリンピック', 'ダンス']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第8問##############################
+hint: 考え count: 4
+正解数: 1 selected_correct: ['ルール']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第9問##############################
+hint: トラベル count: 3
+正解数: 3 selected_correct: ['ニューヨーク', 'ヨーロッパ', 'ベルリン']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第10問##############################
+hint: ツール count: 3
+正解数: 3 selected_correct: ['ウォッチ', 'バッテリー', 'ライト']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第11問##############################
+hint: 動物 count: 3
+正解数: 2 selected_correct: ['ペット', 'タコ']
+不正解数: 1 selected_correct: ['サメ']
+未評価数: 0 selected_correct: []
+第12問##############################
+hint: 休日 count: 3
+正解数: 2 selected_correct: ['フランス', 'ベルリン']
+不正解数: 1 selected_correct: ['ハウス']
+未評価数: 0 selected_correct: []
+第13問##############################
+hint: 夏 count: 3
+正解数: 3 selected_correct: ['オリンピック', 'スイカ', '浜']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第14問##############################
+hint: コンテナ count: 2
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['カギ']
+未評価数: 1 selected_correct: ['密売人']
+第15問##############################
+hint: 機器 count: 4
+正解数: 4 selected_correct: ['ボタン', 'ランプ', 'ミサイル', '望遠鏡']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第16問##############################
+hint: ジャーマン count: 3 <- NG
+正解数: 3 selected_correct: ['ドイツ', 'パイ', 'フォーク']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第17問##############################
+hint: 表がわ count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['フード']
+未評価数: 2 selected_correct: ['ポケット', 'かわら']
+第18問##############################
+hint: 食べ物 count: 2
+正解数: 1 selected_correct: ['アイスクリーム']
+不正解数: 1 selected_correct: ['調理師']
+未評価数: 0 selected_correct: []
+第19問##############################
+hint: クォンティティ count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['チャージ']
+未評価数: 0 selected_correct: []
+第20問##############################
+hint: 飲み物 count: 3
+正解数: 3 selected_correct: ['水', 'ペースト', 'ジョッキ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+result ##################O#############################
+平均正解数: 2.0
+平均誤答数: 0.45
+
+評価: 2.0-0.45=1.55
+NG: 3

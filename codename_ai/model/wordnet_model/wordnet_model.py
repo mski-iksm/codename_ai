@@ -22,9 +22,10 @@ def _use_closest_distance(distance_dicts_list: List[Dict[str, float]]) -> Dict[s
 
 
 def _get_connected_synsets(synset: str) -> Tuple[List[str], List[str]]:
+    hypes = ['hype', 'hypo']
     match_df = wordnet_synlink.loc[wordnet_synlink['synset1'] == synset]
-    hypernym_synsets = list(set(match_df.loc[match_df['link'] == 'hype', 'synset2'].tolist()))
-    other_synsets = list(set(match_df.loc[match_df['link'] != 'hype', 'synset2'].tolist()))
+    hypernym_synsets = list(set(match_df.loc[match_df['link'].isin(hypes), 'synset2'].tolist()))
+    other_synsets = list(set(match_df.loc[~match_df['link'].isin(hypes), 'synset2'].tolist()))
     return (hypernym_synsets, other_synsets)
 
 
@@ -32,7 +33,7 @@ class CalculateWordDistanceWithWordNet(gokart.TaskOnKart):
     target_word: str = luigi.Parameter()
     traverse_depth: int = luigi.IntParameter(default=3)
 
-    __version = luigi.IntParameter(default=0)
+    __version = luigi.IntParameter(default=3)
 
     def output(self):
         relative_file_path = os.path.join(self.__module__.replace('.', '/'),
@@ -59,21 +60,26 @@ class CalculateSynsetDistanceWithWordNetBySynset(gokart.TaskOnKart):
     target_synset: str = luigi.Parameter()
     traverse_depth: int = luigi.IntParameter()
 
-    __version = luigi.IntParameter(default=0)
+    __version = luigi.IntParameter(default=2)
+
+    min_traverse_depth_hyps: int = luigi.IntParameter(default=1)
+    min_traverse_depth_others: int = luigi.IntParameter(default=3)
 
     def output(self):
-        relative_file_path = os.path.join(self.__module__.replace('.', '/'),
-                                          f'{type(self).__name__}_v{self.__version}_{self.target_synset}_dep{self.traverse_depth}.pkl')
+        relative_file_path = os.path.join(
+            self.__module__.replace('.', '/'),
+            f'{type(self).__name__}_v{self.__version}_{self.target_synset}_dep{self.traverse_depth}_minhyp_{self.min_traverse_depth_hyps}_minoth_{self.min_traverse_depth_others}.pkl'
+        )
         return self.make_target(relative_file_path=relative_file_path, use_unique_id=False)
 
     def requires(self):
         hypernym_synsets, other_synsets = _get_connected_synsets(synset=self.target_synset)
         hypernym_synset_tasks = [
             CalculateSynsetDistanceWithWordNetBySynset(target_synset=synset, traverse_depth=self.traverse_depth - 1) for synset in hypernym_synsets
-        ] if self.traverse_depth > 0 else []
+        ] if self.traverse_depth >= self.min_traverse_depth_hyps else []
         other_synset_tasks = [
             CalculateSynsetDistanceWithWordNetBySynset(target_synset=synset, traverse_depth=self.traverse_depth - 1) for synset in other_synsets
-        ] if self.traverse_depth >= 3 else []
+        ] if self.traverse_depth >= self.min_traverse_depth_others else []
         return hypernym_synset_tasks + other_synset_tasks
 
     def run(self):

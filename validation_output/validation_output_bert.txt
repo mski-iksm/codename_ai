@@ -1,0 +1,106 @@
+第1問##############################
+hint: 凡例 count: 3
+正解数: 3 selected_correct: ['紙', 'ダイヤ', 'サークル']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問##############################
+hint: 遅進児 count: 4
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['タイ']
+未評価数: 3 selected_correct: ['ドワーフ', 'ユニコーン', 'アマゾン']
+第3問##############################
+hint: バラエティー count: 5
+正解数: 4 selected_correct: ['ジャングル', 'ドロップ', 'ムチ', '美人']
+不正解数: 1 selected_correct: ['ハウス']
+未評価数: 0 selected_correct: []
+第4問##############################
+hint: 死神 count: 3
+正解数: 3 selected_correct: ['ゴースト', 'ボス', 'ピストル']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第5問##############################
+hint: カイバ count: 3
+正解数: 1 selected_correct: ['ハート']
+不正解数: 1 selected_correct: ['ビタミン']
+未評価数: 0 selected_correct: []
+第6問##############################
+hint: 局番 count: 5
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第7問##############################
+hint: 乞い count: 4
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['金']
+未評価数: 2 selected_correct: ['ホーム', 'スリップ']
+第8問##############################
+hint: 区間 count: 4
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['ブロック']
+未評価数: 1 selected_correct: ['チョーク']
+第9問##############################
+hint: 全欧 count: 3
+正解数: 2 selected_correct: ['ヨーロッパ', 'ベルリン']
+不正解数: 1 selected_correct: ['シェイクスピア']
+未評価数: 0 selected_correct: []
+第10問##############################
+hint: ゴング count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['サウンド']
+未評価数: 2 selected_correct: ['火', '騎士']
+第11問##############################
+hint: フリップフロップ count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['クツ']
+未評価数: 2 selected_correct: ['トリップ', 'スキューバダイバー']
+第12問##############################
+hint: クリスチャン count: 3
+正解数: 1 selected_correct: ['シェイクスピア']
+不正解数: 1 selected_correct: ['ルーム']
+未評価数: 0 selected_correct: []
+第13問##############################
+hint: 仮初 count: 3
+正解数: 1 selected_correct: ['オリンピック']
+不正解数: 1 selected_correct: ['ステージ']
+未評価数: 0 selected_correct: []
+第14問##############################
+hint: ドンドコ count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['アフリカ']
+未評価数: 0 selected_correct: []
+第15問##############################
+hint: バスターミナル count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['ライン']
+未評価数: 1 selected_correct: ['ガス']
+第16問##############################
+hint: 召使い count: 3
+正解数: 2 selected_correct: ['パーティー', 'フォーク']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第17問##############################
+hint: 声 count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['くじ']
+未評価数: 1 selected_correct: ['顔']
+第18問##############################
+hint: 粗菓 count: 3
+正解数: 1 selected_correct: ['アイスクリーム']
+不正解数: 1 selected_correct: ['顔']
+未評価数: 1 selected_correct: ['調理師']
+第19問##############################
+hint: 家相 count: 3
+正解数: 1 selected_correct: ['ライン']
+不正解数: 1 selected_correct: ['命']
+未評価数: 1 selected_correct: ['死']
+第20問##############################
+hint: チェレスタ count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['サウンド']
+未評価数: 2 selected_correct: ['ダンス', 'スタジアム']
+result ###############################################
+平均正解数: 0.95
+平均誤答数: 0.8
+
+
+

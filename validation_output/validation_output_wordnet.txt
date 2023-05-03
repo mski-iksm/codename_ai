@@ -1,0 +1,155 @@
+第1問##############################
+hint: 円型 count: 2
+正解数: 2 selected_correct: ['サークル', 'リング'] <-NG
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問##############################
+hint: グループ count: 2
+正解数: 2 selected_correct: ['サークル', 'センター']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第3問##############################
+hint: 行く count: 2
+正解数: 1 selected_correct: ['ジャングル']
+不正解数: 1 selected_correct: ['ヘリコプター']
+未評価数: 0 selected_correct: []
+第4問##############################
+hint: ツール count: 3
+正解数: 1 selected_correct: ['コード']
+不正解数: 1 selected_correct: ['バット']
+未評価数: 1 selected_correct: ['クツ']
+第5問##############################
+hint: カヴァー count: 1
+正解数: 1 selected_correct: ['カバー'] <- NG
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第6問##############################
+hint: 家宅 count: 2
+正解数: 2 selected_correct: ['カギ', 'ビル']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第7問##############################
+hint: 催し count: 2
+正解数: 2 selected_correct: ['くじ', 'オリンピック']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第8問##############################
+hint: レギュレーション count: 1
+正解数: 1 selected_correct: ['ルール']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第9問##############################
+hint: ドイツ count: 2
+正解数: 2 selected_correct: ['ベルリン', 'ヨーロッパ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第10問##############################
+hint: 器具 count: 3
+正解数: 3 selected_correct: ['ライト', 'バッテリー', 'ウォッチ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第11問##############################
+hint: トラベル count: 1
+正解数: 1 selected_correct: ['トリップ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第12問##############################
+hint: メッセージ count: 2
+正解数: 1 selected_correct: ['メール']
+不正解数: 1 selected_correct: ['チェック']
+未評価数: 0 selected_correct: []
+第13問##############################
+hint: 上着 count: 1
+正解数: 1 selected_correct: ['コート']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第14問##############################
+hint: クレープ count: 2
+正解数: 2 selected_correct: ['パイ', 'カボチャ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第15問##############################
+hint: 灯 count: 2
+正解数: 1 selected_correct: ['ランプ']
+不正解数: 1 selected_correct: ['ガス']
+未評価数: 0 selected_correct: []
+第16問##############################
+hint: 口先 count: 2
+正解数: 1 selected_correct: ['フォーク']
+不正解数: 1 selected_correct: ['密売人']
+未評価数: 0 selected_correct: []
+第17問##############################
+hint: 人間 count: 3
+正解数: 1 selected_correct: ['プリンセス']
+不正解数: 1 selected_correct: ['戦争']
+未評価数: 1 selected_correct: ['顔']
+第18問##############################
+hint: 革 count: 1
+正解数: 1 selected_correct: ['皮'] <-NG
+不正解数: 1 selected_correct: ['コート']
+未評価数: 1 selected_correct: ['ムチ']
+第19問##############################
+hint: 最後 count: 2
+正解数: 1 selected_correct: ['死']
+不正解数: 1 selected_correct: ['命']
+未評価数: 0 selected_correct: []
+第20問##############################
+hint: 貼付 count: 2
+正解数: 1 selected_correct: ['ペースト'] <-NG
+不正解数: 1 selected_correct: ['パーツ']
+未評価数: 0 selected_correct: []
+result ###############################################
+平均正解数: 28/20 = 1.4
+平均誤答数: 9/20=0.45
+
+評価: 1.4-0.45=0.95
+NG: 4第1問##############################
+hint: 円型 count: 2
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第1問##############################
+hint: 円型 count: 2
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問##############################
+hint: グループ count: 2
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第1問##############################
+hint: 円型 count: 2
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問##############################
+hint: グループ count: 2
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第1問##############################
+hint: 円型 count: 2
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['\x1b[A']
+未評価数: 0 selected_correct: []
+第1問##############################
+hint: 円型 count: 2
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問##############################
+hint: 室 count: 3
+正解数: 1 selected_correct: ['ベッド']
+不正解数: 1 selected_correct: ['タワー']
+未評価数: 1 selected_correct: ['ガス']
+第3問##############################
+hint: 付き添い count: 3
+正解数: 1 selected_correct: ['美人']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第4問##############################
+hint: 暗号 count: 3
+正解数: 3 selected_correct: ['コード', 'ボス', 'ピストル']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []

@@ -1,0 +1,108 @@
+第1問##############################
+hint: 会報 count: 3 -> [キウイ, サークル, 紙] 
+正解数: 2 selected_correct: ['紙', 'サークル']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問##############################
+hint: 苦しみ count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['ガス']
+未評価数: 2 selected_correct: ['サソリ', '針']
+第3問##############################
+hint: 一徹 count: 3
+正解数: 1 selected_correct: ['ワシ']
+不正解数: 1 selected_correct: ['海賊']
+未評価数: 0 selected_correct: []
+第4問##############################
+hint: 黒幕 count: 3
+正解数: 2 selected_correct: ['ボス', 'ピストル']
+不正解数: 1 selected_correct: ['ジム']
+未評価数: 0 selected_correct: []
+第5問##############################
+hint: 撮像 count: 2
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['スパイ']
+未評価数: 1 selected_correct: ['スキューバダイバー']
+第6問##############################
+hint: 便数 count: 3
+正解数: 2 selected_correct: ['バス', 'ジェット機']
+不正解数: 1 selected_correct: ['グリーン']
+未評価数: 0 selected_correct: []
+第7問##############################
+hint: 格闘技 count: 4
+正解数: 2 selected_correct: ['ファイター', 'オリンピック']
+不正解数: 1 selected_correct: ['兵士']
+未評価数: 1 selected_correct: ['教師']
+第8問##############################
+hint: 扇風機 count: 3
+正解数: 2 selected_correct: ['アイスクリーム', 'ランプ']
+不正解数: 1 selected_correct: ['ハウス']
+未評価数: 0 selected_correct: []
+第9問##############################
+hint: モモ count: 4
+正解数: 1 selected_correct: ['レモン']
+不正解数: 1 selected_correct: ['シェイクスピア']
+未評価数: 0 selected_correct: []
+第10問##############################
+hint: 蓄電池 count: 3
+正解数: 3 selected_correct: ['バッテリー', 'ライト', 'ウォッチ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第11問##############################
+hint: レンチ count: 3
+正解数: 1 selected_correct: ['ボルト']
+不正解数: 1 selected_correct: ['パンク']
+未評価数: 1 selected_correct: ['クツ']
+第12問##############################
+hint: 詩人 count: 3
+正解数: 3 selected_correct: ['シェイクスピア', 'メール', 'フランス']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第13問##############################
+hint: プラム count: 3
+正解数: 2 selected_correct: ['スイカ', 'サケ']
+不正解数: 1 selected_correct: ['魚']
+未評価数: 0 selected_correct: []
+第14問##############################
+hint: ブランデー count: 3
+正解数: 1 selected_correct: ['コップ']
+不正解数: 1 selected_correct: ['コート']
+未評価数: 1 selected_correct: ['クツ']
+第15問##############################
+hint: リモコン count: 3
+正解数: 3 selected_correct: ['ボタン', 'ランプ', 'ミサイル']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第16問##############################
+hint: 肴 count: 4
+正解数: 2 selected_correct: ['フォーク', 'パイ']
+不正解数: 1 selected_correct: ['オレンジ']
+未評価数: 0 selected_correct: []
+第17問##############################
+hint: 男の子 count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: [']']
+未評価数: 2 selected_correct: ['角', '顔']
+第18問##############################
+hint: マグロ count: 3
+正解数: 1 selected_correct: ['サメ']
+不正解数: 1 selected_correct: ['水']
+未評価数: 1 selected_correct: ['調理師']
+第19問##############################
+hint: 新道 count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['トリップ']
+未評価数: 1 selected_correct: ['ライン']
+第20問##############################
+hint: 邪気 count: 3
+正解数: 1 selected_correct: ['毒']
+不正解数: 1 selected_correct: ['エイリアン']
+未評価数: 1 selected_correct: ['カボチャ']
+result ###############################################
+平均正解数: 1.45
+平均誤答数: 0.8
+第1問##############################
+hint: 会報 count: 3
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []

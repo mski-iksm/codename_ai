@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 from codename_ai.model.bert_bl.bert_model import CalculateWordDistanceWithBERT
 from codename_ai.model.candidate_words import (base_small_candidate_words, large_ipa_noun_candidate_words, small_noun_candidate_words)
-from codename_ai.model.chatgpt_model.chatgpt_model import filter_chatgpt_with_word2vec, query_chatgpt
+from codename_ai.model.chatgpt_model.chatgpt_model import (add_gpt_with_wordnet, filter_chatgpt_with_word2vec, query_chatgpt)
 from codename_ai.model.game import Game
 from codename_ai.model.scoring import ScoringWithRedAndBlue
 from codename_ai.model.word2vec_bl.word2vec_model import \
@@ -121,8 +121,7 @@ class ChatGPTWithWord2VecBossModel(BossModelBase):
         my_target_words = words_by_color[f'{self._my_color}_words']
         other_target_words = words_by_color['red_words'] if self._my_color == 'blue' else words_by_color['blue_words']
         opponent_target_words = other_target_words + words_by_color['black_words'] + words_by_color['white_words']
-        best_candidate_word, expect_count, expect_words = filter_chatgpt_with_word2vec(my_target_words=my_target_words,
-                                                                                       opponent_target_words=opponent_target_words)
+        best_candidate_word, expect_count, expect_words = add_gpt_with_wordnet(my_target_words=my_target_words, opponent_target_words=opponent_target_words)
         return best_candidate_word, expect_count, expect_words
 
 

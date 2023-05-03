@@ -18,6 +18,8 @@ sentence-transformers = "^2.2.2"
 fugashi = "^1.2.1"
 ipadic = "^1.0.0"
 openai = "^0.27.4"
+romkan = "^0.2.1"
+jaconv = "^0.3.4"
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.12.0"
