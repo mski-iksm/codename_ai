@@ -1,0 +1,103 @@
+第1問##############################
+hint: 真鍮 count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['金']
+未評価数: 2 selected_correct: ['リング', 'ダイヤ']
+第2問##############################
+hint: 生協 count: 3
+正解数: 2 selected_correct: ['サークル', 'アマゾン']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第3問##############################
+hint: 大正製薬 count: 2
+正解数: 2 selected_correct: ['ドロップ', 'ワシ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第4問##############################
+hint: 撃ち込む count: 3
+正解数: 1 selected_correct: ['ピストル']
+不正解数: 1 selected_correct: ['バット']
+未評価数: 1 selected_correct: ['レーザー']
+第5問##############################
+hint: タランチュラ count: 2
+正解数: 2 selected_correct: ['毒', 'カボチャ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第6問##############################
+hint: 羽田空港 count: 3
+正解数: 2 selected_correct: ['ジェット機', 'バス']
+不正解数: 1 selected_correct: ['オリンピック']
+未評価数: 0 selected_correct: []
+第7問##############################
+hint: 世界大会 count: 3
+正解数: 2 selected_correct: ['オリンピック', 'ダンス']
+不正解数: 1 selected_correct: ['金']
+未評価数: 0 selected_correct: []
+第8問##############################
+hint: ボールカウント count: 2
+正解数: 2 selected_correct: ['ストライク', 'ルール']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第9問##############################
+hint: シカゴ交響楽団 count: 3
+正解数: 1 selected_correct: ['ニューヨーク']
+不正解数: 1 selected_correct: ['レベル']
+未評価数: 0 selected_correct: []
+第10問##############################
+hint: 電飾 count: 3
+正解数: 2 selected_correct: ['ライト', 'バッテリー']
+不正解数: 1 selected_correct: ['カジノ']
+未評価数: 0 selected_correct: []
+第11問##############################
+hint: 昇圧 count: 2
+正解数: 1 selected_correct: ['スキューバダイバー']
+不正解数: 1 selected_correct: ['パンク']
+未評価数: 0 selected_correct: []
+第12問##############################
+hint: ブレスト count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['ルーム']
+未評価数: 2 selected_correct: ['アマゾン', 'イス']
+第13問##############################
+hint: 遺伝子組み換え count: 2
+正解数: 2 selected_correct: ['マウス', 'バラ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第14問##############################
+hint: パンプキン count: 2
+正解数: 2 selected_correct: ['カボチャ', 'パイ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第15問##############################
+hint: 照準 count: 3
+正解数: 2 selected_correct: ['ミサイル', '望遠鏡']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第16問##############################
+hint: ホット count: 3
+正解数: 3 selected_correct: ['クール', 'パイ', 'ブレンド']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第17問##############################
+hint: 魚雷 count: 3
+正解数: 1 selected_correct: ['船']
+不正解数: 1 selected_correct: ['戦争']
+未評価数: 1 selected_correct: ['ミサイル']
+第18問##############################
+hint: アザラシ count: 3
+正解数: 2 selected_correct: ['ペンギン', 'サメ']
+不正解数: 1 selected_correct: ['しっぽ']
+未評価数: 0 selected_correct: []
+第19問##############################
+hint: ナショジオ count: 2
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['アメリカ']
+未評価数: 2 selected_correct: ['ライオン', 'バッファロー']
+第20問##############################
+hint: 飲む count: 3
+正解数: 3 selected_correct: ['ジョッキ', '水', '毒']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+result ###############################################
+平均正解数: 1.6
+平均誤答数: 0.55

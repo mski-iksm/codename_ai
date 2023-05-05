@@ -17,3 +17,8 @@ def is_bs_not_part_of_a(a_word: str, b_words: List[str]) -> bool:
 def is_valid_hint(hint_word: str, target_words: List[str]) -> bool:
     ng_words_for_targets = list(itertools.chain.from_iterable([ng_words.get(target_word, []) for target_word in target_words]))
     return hint_word not in ng_words_for_targets
+
+
+def is_valid_hints(hint_words: List[str], target_words: List[str]) -> List[bool]:
+    ng_words_for_targets = list(itertools.chain.from_iterable([ng_words.get(target_word, []) for target_word in target_words]))
+    return [hint_word not in ng_words_for_targets for hint_word in hint_words]

@@ -8,7 +8,8 @@ from codename_ai.model.bert_bl.bert_model import CalculateWordDistanceWithBERT
 from codename_ai.model.candidate_words import (base_small_candidate_words, large_ipa_noun_candidate_words, small_noun_candidate_words)
 from codename_ai.model.chatgpt_model.chatgpt_model import (add_gpt_with_wordnet, filter_chatgpt_with_word2vec, query_chatgpt)
 from codename_ai.model.game import Game
-from codename_ai.model.scoring import ScoringWithRedAndBlue
+from codename_ai.model.pmi.wiki_pmi import CalculateWordDistanceWithWikiPMI
+from codename_ai.model.scoring import FilteredScoringModel, ScoringWithRedAndBlue
 from codename_ai.model.word2vec_bl.word2vec_model import \
     CalculateWordDistanceWithWord2Vec
 from codename_ai.model.wordnet_model.wordnet_model import \
@@ -169,4 +170,54 @@ class WordNetBossModel(BossModelBase):
         # embedding scoreで再ソート
         best_candidate_word, expect_count, expect_words = scoring_model.get_best_word_and_count(
             second_table=embedding_scoring_model._candidates_table[['total_score']])
+        return (best_candidate_word, expect_count, expect_words)
+
+
+class WikiPMIBossModel(BossModelBase):
+    MY_PMI_SCORE_CUTOFF = 2
+    OPPONENT_PMI_SCORE_CUTOFF = 0
+    MY_TARGET_SCORE_OFFSET = 0.3
+    FILLNA_DISTANCE_FOR_ME = 9999
+    FILLNA_DISTANCE_FOR_OPPONENT = 0
+
+    MIN_FREQUENCY = 200
+
+    def next_hint(self, game: Game) -> Tuple[str, int, Tuple[str, ...]]:
+        words_by_color = game.get_unopened_words_by_color()
+
+        my_target_words = words_by_color[f'{self._my_color}_words']
+        other_target_words = words_by_color['red_words'] if self._my_color == 'blue' else words_by_color['blue_words']
+        opponent_target_words = other_target_words + words_by_color['black_words'] + words_by_color['white_words']
+
+        # 自分チームと相手チームの単語でcutoffを変える
+        my_distance_data_dict: Dict[str, Dict[str, float]] = {
+            target_word: gokart.build(CalculateWordDistanceWithWikiPMI(target_word=target_word, pmi_score_cutoff=self.MY_PMI_SCORE_CUTOFF),
+                                      log_level=logging.ERROR)
+            for target_word in tqdm(my_target_words)
+        }
+        opponent_distance_data_dict: Dict[str, Dict[str, float]] = {
+            target_word: gokart.build(CalculateWordDistanceWithWikiPMI(target_word=target_word, pmi_score_cutoff=self.OPPONENT_PMI_SCORE_CUTOFF),
+                                      log_level=logging.ERROR)
+            for target_word in tqdm(opponent_target_words)
+        }
+
+        distance_data_dict: Dict[str, Dict[str, float]] = my_distance_data_dict | opponent_distance_data_dict
+
+        # スコアリング
+        my_target_words = words_by_color[f'{self._my_color}_words']
+        other_target_words = words_by_color['red_words'] if self._my_color == 'blue' else words_by_color['blue_words']
+        opponent_target_words = other_target_words + words_by_color['black_words'] + words_by_color['white_words']
+        scoring_model = ScoringWithRedAndBlue.calculate_scores(my_target_words=my_target_words,
+                                                               opponent_target_words=opponent_target_words,
+                                                               distance_data_dict=distance_data_dict,
+                                                               my_target_score_offset=self.MY_TARGET_SCORE_OFFSET,
+                                                               fillna_distance_for_me=self.FILLNA_DISTANCE_FOR_ME,
+                                                               fillna_distance_for_opponent=self.FILLNA_DISTANCE_FOR_OPPONENT)
+
+        # フィルタ
+        filed_words = my_target_words + opponent_target_words
+        filtered_scoring_model = FilteredScoringModel.filer_words(scoring_model=scoring_model, min_frequency=self.MIN_FREQUENCY, field_words=filed_words)
+
+        # ソート
+        best_candidate_word, expect_count, expect_words = filtered_scoring_model.get_best_word_and_count()
         return (best_candidate_word, expect_count, expect_words)

@@ -4,7 +4,7 @@ from typing import Dict, List, Optional, Tuple
 import pandas as pd
 from tqdm import tqdm
 
-from codename_ai.model.filtering import (is_a_not_part_of_bs, is_bs_not_part_of_a)
+from codename_ai.model.filtering import is_a_not_part_of_bs, is_bs_not_part_of_a, is_valid_hints
 
 
 class ScoringWithRedAndBlue:
@@ -85,8 +85,8 @@ class ScoringWithRedAndBlue:
 
         sorted_scores = scores.sort_values(sort_columns, ascending=False)
         # デバッグ
-        pd.options.display.max_rows = 1000
-        print(sorted_scores.head(100))
+        # pd.options.display.max_rows = 1000
+        # print(sorted_scores.head(100))
 
         best_candidate_word = sorted_scores.iloc[0].name
         expect_count = sorted_scores.iloc[0]['count']
@@ -96,3 +96,37 @@ class ScoringWithRedAndBlue:
 
     def get_candidate_words(self) -> List[str]:
         return self._candidates_table.index.to_list()
+
+
+class FilteredScoringModel:
+
+    @classmethod
+    def filer_words(cls, scoring_model: ScoringWithRedAndBlue, min_frequency: int, field_words: List[str]) -> ScoringWithRedAndBlue:
+        filtered_candidate_table = scoring_model._candidates_table
+
+        filtered_candidate_table = cls._filter_low_frequent_words(filtered_candidate_table=filtered_candidate_table, min_frequency=min_frequency)
+        filtered_candidate_table = cls._filter_english(filtered_candidate_table=filtered_candidate_table)
+        filtered_candidate_table = cls._fliter_ng_words(filtered_candidate_table=filtered_candidate_table, field_words=field_words)
+        return ScoringWithRedAndBlue(candidates_table=filtered_candidate_table)
+
+    @classmethod
+    def _filter_low_frequent_words(cls, filtered_candidate_table: pd.DataFrame, min_frequency: int) -> pd.DataFrame:
+        freq: Dict[str, int] = pd.read_pickle('./data/jawiki/frequency_dict_small.pkl')
+        freq_df = pd.DataFrame.from_dict(freq, orient='index')
+        freq_df.columns = ['total_freq']
+
+        _df = filtered_candidate_table.join(freq_df)
+        return _df.query(f'total_freq>={min_frequency}')
+
+    @classmethod
+    def _filter_english(cls, filtered_candidate_table: pd.DataFrame) -> pd.DataFrame:
+        _df = filtered_candidate_table.copy()
+        _df['isascii'] = [word.isascii() for word in _df.index]
+        return _df.query('not isascii')
+
+    @classmethod
+    def _fliter_ng_words(cls, filtered_candidate_table: pd.DataFrame, field_words: List[str]) -> pd.DataFrame:
+        _df = filtered_candidate_table.copy()
+        _df['is_not_ng_word'] = is_valid_hints(hint_words=list(_df.index), target_words=field_words)
+        _df = _df.query('is_not_ng_word')
+        return _df

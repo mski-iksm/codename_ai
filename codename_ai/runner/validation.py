@@ -2,7 +2,8 @@ import os
 import time
 from typing import Dict
 
-from codename_ai.model.boss import (BaseLineBERTBossModel, BossModelBase, ChatGPTBossModel, ChatGPTWithWord2VecBossModel, Word2VecBossModel, WordNetBossModel)
+from codename_ai.model.boss import (BaseLineBERTBossModel, BossModelBase, ChatGPTBossModel, ChatGPTWithWord2VecBossModel, WikiPMIBossModel, Word2VecBossModel,
+                                    WordNetBossModel)
 from codename_ai.model.game import Game
 
 model_name2class: Dict[str, BossModelBase] = {
@@ -11,6 +12,7 @@ model_name2class: Dict[str, BossModelBase] = {
     'chatgpt': ChatGPTBossModel,
     'wordnet': WordNetBossModel,
     'enhanced_chatgpt': ChatGPTWithWord2VecBossModel,
+    'wiki_pmi': WikiPMIBossModel,
 }
 
 
