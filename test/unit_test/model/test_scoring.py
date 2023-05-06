@@ -3,10 +3,10 @@ import unittest
 import numpy as np
 import pandas as pd
 
-from codename_ai.model.scoring import ScoringWithRedAndBlue
+from codename_ai.model.scoring import ScoringWithFieldWords
 
 
-class TestScoringWithRedAndBlue(unittest.TestCase):
+class TestScoringWithFieldWords(unittest.TestCase):
 
     def test_total_scores(self):
         my_target_words = ['a', 'b']
@@ -32,7 +32,7 @@ class TestScoringWithRedAndBlue(unittest.TestCase):
                 'DDD': 1.0
             }
         }
-        resulted = ScoringWithRedAndBlue.calculate_scores(my_target_words=my_target_words,
+        resulted = ScoringWithFieldWords.calculate_scores(my_target_words=my_target_words,
                                                           opponent_target_words=opponent_target_words,
                                                           distance_data_dict=distance_data_dict)
         expected_total_scores = pd.DataFrame([
@@ -43,7 +43,7 @@ class TestScoringWithRedAndBlue(unittest.TestCase):
         ],
                                              index=['AAA', 'BBB', 'CCC', 'DDD'],
                                              columns=['score', 'count', 'expecting_my_target_word', 'total_score'])
-        expected = ScoringWithRedAndBlue(candidates_table=expected_total_scores)
+        expected = ScoringWithFieldWords(candidates_table=expected_total_scores)
 
         pd.testing.assert_frame_equal(resulted._candidates_table, expected._candidates_table)
 
@@ -56,7 +56,7 @@ class TestScoringWithRedAndBlue(unittest.TestCase):
         ],
                                              index=['AAA', 'BBB', 'CCC', 'DDD'],
                                              columns=['score', 'count', 'expecting_my_target_word', 'total_score'])
-        scoing_model = ScoringWithRedAndBlue(candidates_table=expected_total_scores)
+        scoing_model = ScoringWithFieldWords(candidates_table=expected_total_scores)
         resulted_best_candidate_word, resulted_expect_count, resulted_expect_words = scoing_model.get_best_word_and_count()
 
         expected_best_candidate_word = 'DDD'
@@ -83,7 +83,7 @@ class TestScoringWithRedAndBlue(unittest.TestCase):
                 'AAA': 2.,
             }
         }
-        resulted = ScoringWithRedAndBlue.calculate_scores(my_target_words=my_target_words,
+        resulted = ScoringWithFieldWords.calculate_scores(my_target_words=my_target_words,
                                                           opponent_target_words=opponent_target_words,
                                                           distance_data_dict=distance_data_dict,
                                                           my_target_score_offset=0.,
@@ -95,6 +95,6 @@ class TestScoringWithRedAndBlue(unittest.TestCase):
         ],
                                              index=['AAA', 'BBB'],
                                              columns=['score', 'count', 'expecting_my_target_word', 'total_score'])
-        expected = ScoringWithRedAndBlue(candidates_table=expected_total_scores)
+        expected = ScoringWithFieldWords(candidates_table=expected_total_scores)
 
         pd.testing.assert_frame_equal(resulted._candidates_table, expected._candidates_table)

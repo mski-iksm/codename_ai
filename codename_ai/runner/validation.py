@@ -2,17 +2,20 @@ import os
 import time
 from typing import Dict
 
-from codename_ai.model.boss import (BaseLineBERTBossModel, BossModelBase, ChatGPTBossModel, ChatGPTWithWord2VecBossModel, WikiPMIBossModel, Word2VecBossModel,
-                                    WordNetBossModel)
+from codename_ai.model.boss import (BaseLineBERTBossModel, BossModelBase, ChatGPTSuppressedWithWikiAndWordnet_plus_WikiAndWordnet_Model,
+                                    ChatGPTWithWikiPMISuppressed_plus_WikiPMI_BossModel, ChatGPTWithWordNetSuppressed_plus_WikiPMI_BossModel,
+                                    ChatGPTWithWordNetSuppressedBossModel, WikiPMIBossModel, Word2VecBossModel, WordNetBossModel)
 from codename_ai.model.game import Game
 
 model_name2class: Dict[str, BossModelBase] = {
     'word2vec': Word2VecBossModel,
     'bert': BaseLineBERTBossModel,
-    'chatgpt': ChatGPTBossModel,
     'wordnet': WordNetBossModel,
-    'enhanced_chatgpt': ChatGPTWithWord2VecBossModel,
+    'chatgpt_suppressed_by_wordnet': ChatGPTWithWordNetSuppressedBossModel,
     'wiki_pmi': WikiPMIBossModel,
+    'chatgpt_plus_pmi': ChatGPTWithWordNetSuppressed_plus_WikiPMI_BossModel,
+    'chatgpt_pmi_suppressed_plus_pmi': ChatGPTWithWikiPMISuppressed_plus_WikiPMI_BossModel,
+    'chatgpt_pmi_suppressed_plus_pmi_plus_wordnet': ChatGPTSuppressedWithWikiAndWordnet_plus_WikiAndWordnet_Model,
 }
 
 

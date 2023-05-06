@@ -1,0 +1,103 @@
+第1問############################## GPT
+hint: 形状 count: 4
+正解数: 3 selected_correct: ['リング', 'サークル', 'ダイヤ']
+不正解数: 1 selected_correct: ['モデル']
+未評価数: 0 selected_correct: []
+第2問############################## wiki
+hint: 人差し指 count: 2
+正解数: 2 selected_correct: ['親指', '幸運']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第3問############################## GPT
+hint: 動く count: 2
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['ヘリコプター']
+未評価数: 1 selected_correct: ['恐竜']
+第4問############################## GPT+wiki
+hint: 家電 count: 3
+正解数: 3 selected_correct: ['掃除機', 'コード', 'バッテリー']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第5問############################## GPT+wiki
+hint: ハロウィン count: 2
+正解数: 2 selected_correct: ['カボチャ', 'タブレット']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第6問############################## GPT
+hint: 乗り物 count: 3
+正解数: 2 selected_correct: ['ジェット機', 'バス']
+不正解数: 1 selected_correct: ['グリーン']
+未評価数: 0 selected_correct: []
+第7問############################## GPT+wiki
+hint: 貝 count: 2
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['ペンギン']
+未評価数: 1 selected_correct: ['クジラ']
+第8問############################## wiki
+hint: 光源 count: 2
+正解数: 2 selected_correct: ['ランプ', '昼']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第9問##############################
+hint: イノシシ count: 2
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['草原']
+未評価数: 1 selected_correct: ['クマ']
+第10問############################## GPT
+hint: 指示 count: 3
+正解数: 1 selected_correct: ['ボス']
+不正解数: 1 selected_correct: ['飛行機']
+未評価数: 1 selected_correct: ['鉄道']
+第11問##############################
+hint: 動物園 count: 3
+正解数: 3 selected_correct: ['ペット', 'トリップ', 'ユニコーン']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第12問##############################
+hint: 日常 count: 3
+正解数: 2 selected_correct: ['メール', 'ボタン']
+不正解数: 1 selected_correct: ['ハウス']
+未評価数: 0 selected_correct: []
+第13問##############################
+hint: 果物 count: 3
+正解数: 2 selected_correct: ['スイカ', 'サケ']
+不正解数: 1 selected_correct: ['魚']
+未評価数: 0 selected_correct: []
+第14問##############################
+hint: ポーク count: 2
+正解数: 2 selected_correct: ['カボチャ', 'パイ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第15問##############################
+hint: 押す count: 3
+正解数: 3 selected_correct: ['ボタン', 'ミサイル', 'ツメ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第16問##############################
+hint: 音楽 count: 3
+正解数: 3 selected_correct: ['パーティー', 'フォーク', 'クール']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第17問############################## GPT
+hint: ロッカー count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['ロック']
+未評価数: 0 selected_correct: []
+第18問##############################
+hint: アザラシ count: 3
+正解数: 1 selected_correct: ['ペンギン']
+不正解数: 1 selected_correct: ['しっぽ']
+未評価数: 1 selected_correct: ['サメ']
+第19問##############################
+hint: 動物園 count: 2
+正解数: 2 selected_correct: ['ライオン', 'カモ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第20問############################## GPT
+hint: 競技 count: 4
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['ダンス']
+未評価数: 3 selected_correct: ['レース', 'トラック', 'スタジアム']
+result ###############################################
+平均正解数: 1.65
+平均誤答数: 0.55

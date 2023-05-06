@@ -1,0 +1,103 @@
+第1問############################## wiki
+hint: デスマッチ count: 2
+正解数: 2 selected_correct: ['リング', 'ファイター']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第2問############################## GPT+wiki
+hint: プライム count: 3
+正解数: 3 selected_correct: ['アマゾン', 'センター', '針']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第3問############################## GPT+wiki
+hint: 森林 count: 2
+正解数: 2 selected_correct: ['ジャングル', 'ムチ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第4問############################## GPT
+hint: エージェント count: 5
+正解数: 3 selected_correct: ['ボス', 'ピストル', 'コード']
+不正解数: 1 selected_correct: ['ネクタイ']
+未評価数: 1 selected_correct: ['ジム']
+第5問############################## GPT+wiki
+hint: 深海 count: 2
+正解数: 2 selected_correct: ['潜水艦', 'スキューバダイバー']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第6問############################## wiki
+hint: ラピッド count: 2
+正解数: 2 selected_correct: ['ジェット機', '時間']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第7問############################## wiki
+hint: 海 count: 2
+正解数: 2 selected_correct: ['クジラ', 'サメ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第8問############################## GPT
+hint: 助ける count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['クイーン']
+未評価数: 2 selected_correct: ['エイリアン', 'ノベル']
+第9問############################## wiki+wordnet
+hint: キツネ count: 2
+正解数: 2 selected_correct: ['ウサギ', 'クマ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第10問############################## GPT
+hint: エレクトロニクス count: 3
+正解数: 3 selected_correct: ['ウォッチ', 'バッテリー', 'ライト']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第11問############################## GPT
+hint: 超自然 count: 3
+正解数: 3 selected_correct: ['ユニコーン', 'ピラミッド', 'タコ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第12問############################## wiki
+hint: シュル count: 2
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第13問############################## wiki + wordnet
+hint: ナシ count: 3
+正解数: 2 selected_correct: ['スイカ', 'サケ']
+不正解数: 1 selected_correct: ['魚']
+未評価数: 0 selected_correct: []
+第14問############################## wiki
+hint: ポーク count: 2
+正解数: 2 selected_correct: ['カボチャ', 'パイ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第15問############################## wiki
+hint: 照準 count: 3
+正解数: 2 selected_correct: ['ミサイル', '望遠鏡']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第16問############################## GPT
+hint: コーディネート count: 5
+正解数: 4 selected_correct: ['パーティー', 'パイ', 'フォーク', 'ブレンド']
+不正解数: 1 selected_correct: ['オレンジ']
+未評価数: 0 selected_correct: []
+第17問##############################
+hint: マーメイド count: 2
+正解数: 1 selected_correct: ['プリンセス']
+不正解数: 1 selected_correct: ['ドイツ']
+未評価数: 1 selected_correct: ['スポット']
+第18問##############################
+hint: アザラシ count: 3
+正解数: 2 selected_correct: ['サメ', 'ペンギン']
+不正解数: 1 selected_correct: ['水']
+未評価数: 0 selected_correct: []
+第19問############################## wiki
+hint: 上野動物園 count: 2
+正解数: 2 selected_correct: ['ライオン', 'カモ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第20問##############################
+hint: 危険 count: 3
+正解数: 2 selected_correct: ['毒', '火']
+不正解数: 1 selected_correct: ['ガス']
+未評価数: 0 selected_correct: []
+result ###############################################
+平均正解数: 2.05
+平均誤答数: 0.35

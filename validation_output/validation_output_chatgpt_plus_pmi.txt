@@ -1,0 +1,104 @@
+
+第1問############################## GPT
+hint: 形 count: 5
+正解数: 3 selected_correct: ['サークル', 'ダイヤ', 'リング']
+不正解数: 1 selected_correct: ['チェック']
+未評価数: 1 selected_correct: ['モデル']
+第2問############################## wiki
+hint: 人差し指 count: 2
+正解数: 2 selected_correct: ['親指', '幸運']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第3問############################## wiki
+hint: 大正製薬 count: 2
+正解数: 2 selected_correct: ['ワシ', 'ドロップ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第4問############################## wiki
+hint: エグゼイド count: 2 
+正解数: 0 selected_correct: []
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第5問############################## GPT
+hint: モノクロ count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['スパイ']
+未評価数: 1 selected_correct: ['ギリシア']
+第6問############################## wiki
+hint: 楮 count: 2
+正解数: 2 selected_correct: ['紙', '皮']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第7問############################## GPT
+hint: 競技 count: 3
+正解数: 2 selected_correct: ['オリンピック', 'ダンス']
+不正解数: 1 selected_correct: ['金']
+未評価数: 0 selected_correct: []
+第8問############################## wiki
+hint: ボールカウント count: 2
+正解数: 2 selected_correct: ['ストライク', 'ルール']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第9問############################## GPT
+hint: 旅行 count: 3
+正解数: 3 selected_correct: ['ニューヨーク', 'ベルリン', 'ヨーロッパ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第10問############################## wiki
+hint: スペアタイヤ count: 2
+正解数: 2 selected_correct: ['チューブ', 'トランク']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第11問############################## GPT
+hint: 動物 count: 3
+正解数: 0 selected_correct: []
+不正解数: 1 selected_correct: ['サメ']
+未評価数: 2 selected_correct: ['タコ', 'ユニコーン']
+第12問##############################
+hint: ストラトフォード count: 2
+正解数: 2 selected_correct: ['カナダ', 'ベルリン']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第13問############################## GPT+wiki
+hint: 球技 count: 4
+正解数: 2 selected_correct: ['オリンピック', 'コート']
+不正解数: 1 selected_correct: ['キャンプ']
+未評価数: 1 selected_correct: ['浜']
+第14問############################## wiki
+hint: パンプキン count: 2
+正解数: 2 selected_correct: ['カボチャ', 'パイ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第15問##############################
+hint: 光 count: 3
+正解数: 3 selected_correct: ['ランプ', 'ボタン', '望遠鏡']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第16問##############################
+hint: チーズ count: 4
+正解数: 4 selected_correct: ['ブレンド', 'フォーク', 'パイ', 'ドイツ']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+第17問##############################
+hint: 口コミ count: 4
+正解数: 1 selected_correct: ['ネット']
+不正解数: 1 selected_correct: ['スポット']
+未評価数: 0 selected_correct: []
+第18問##############################
+hint: アザラシ count: 3
+正解数: 2 selected_correct: ['サメ', 'ペンギン']
+不正解数: 1 selected_correct: ['水']
+未評価数: 0 selected_correct: []
+第19問############################## GPT
+hint: フィクション count: 3
+正解数: 0 selected_correct: ['ネス湖', 'ハリウッド']
+不正解数: 1 selected_correct: ['フェニックス']
+未評価数: 2 selected_correct: []
+第20問##############################
+hint: エンドゾーン count: 2
+正解数: 2 selected_correct: ['スタジアム', 'パス']
+不正解数: 0 selected_correct: []
+未評価数: 0 selected_correct: []
+result ###############################################
+平均正解数: 1.9
+平均誤答数: 0.4
